@@ -1,7 +1,6 @@
-/* 1. IMPORT FONTS (Must be at the very top) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
 
-/* 2. GLOBAL RESET & BASE STYLES */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +12,6 @@ html {
 }
 
 body {
-    /* Main body font is now 'Inter' for readability */
     font-family: 'Inter', sans-serif;
     color: beige;
     background-image: url(bg3.jpg);
@@ -24,13 +22,11 @@ body {
     margin: 0px;
 }
 
-/* 3. TYPOGRAPHY & UTILITIES */
 h1, h2, h3, .section-title {
-    font-family: 'Poppins', sans-serif; /* Bold, geometric headings */
+    font-family: 'Poppins', sans-serif; 
     font-weight: 700;
 }
 
-/* Make paragraphs softer and easier to read */
 p, .about-text, .contact-text {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
@@ -38,7 +34,6 @@ p, .about-text, .contact-text {
     line-height: 1.6;
 }
 
-/* 4. HEADER & NAVIGATION */
 header {
     color: white;
     padding: 10px 20px;
@@ -74,7 +69,6 @@ nav ul li a:hover {
     text-decoration: overline;
 }
 
-/* 5. HOME / HERO SECTION */
 .home-container {
     display: flex;
     align-items: center;
@@ -82,7 +76,6 @@ nav ul li a:hover {
     padding: 50px;
     color: #333;
     
-    /* CRITICAL FIX: Forces full screen height so other sections don't 'peek' */
     min-height: 100vh;      
     padding-bottom: 100px; 
 }
@@ -93,7 +86,6 @@ nav ul li a:hover {
     margin-left: 75px;
 }
 
-/* Typewriter Effect - Now using Monospace for perfect typing */
 .typewriter {
     font-family: 'Space Mono', monospace; 
     color: #fff;
@@ -113,7 +105,7 @@ nav ul li a:hover {
 
 @keyframes typing {
     from { width: 0; }
-    to { width: 17ch; } /* Fits "hi, ashmit here." */
+    to { width: 17ch; }
 }
 
 @keyframes blink {
@@ -125,7 +117,6 @@ nav ul li a:hover {
     background-color: black;
 }
 
-/* --- THE FIX: Reverted to Verdana (Sharp/Bold) --- */
 .intro-text h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
@@ -137,7 +128,6 @@ nav ul li a:hover {
     color: #ff6347;
 }
 
-/* CTA Buttons */
 .cta-buttons .btn {
     font-family: 'Space Mono', monospace; /* Tech font for buttons */
     text-decoration: none;
@@ -153,7 +143,6 @@ nav ul li a:hover {
     background-color: #f3826ecf;
 }
 
-/* Social Icons */
 .social-icons {
     margin-top: 20px;
 }
@@ -165,15 +154,15 @@ nav ul li a:hover {
 }
 
 .social-icons i {
-    transition: 0.3s; /* Smooth hover for icons */
+    transition: 0.3s; 
 }
 
 #linkedin:hover, #insta:hover, #git:hover {
-    color: #ff6347 !important; /* Force override color */
+    color: #ff6347 !important; 
     transform: scale(1.1);
 }
 
-/* Profile Image (The Leaf Shape) */
+
 .intro-image img {
     width: 400px;
     height: 400px;
@@ -183,7 +172,6 @@ nav ul li a:hover {
     margin-right: 75px;
     animation: fadeIn 3s;
     
-    /* Custom Shape */
     border-style: solid;
     border-bottom-right-radius: 0%;
     border-top-left-radius: 0%;
@@ -199,12 +187,11 @@ nav ul li a:hover {
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* 6. GENERAL SECTIONS (About, Projects, Contact) */
 .section-container {
     padding: 80px 20px;
     max-width: 900px;
     margin: 0 auto;
-    margin-bottom: 100px; /* Breathing room for animation */
+    margin-bottom: 100px; 
 }
 
 .section-title {
@@ -217,7 +204,6 @@ nav ul li a:hover {
     padding-bottom: 10px;
 }
 
-/* 7. ABOUT SECTION STYLES */
 .about-content {
     display: flex;
     flex-wrap: wrap;
@@ -260,7 +246,7 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* 8. PROJECT CARDS */
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -306,7 +292,7 @@ nav ul li a:hover {
     border-radius: 12px;
     font-size: 0.8rem;
     margin-right: 5px;
-    font-family: 'Space Mono', monospace; /* Tech font */
+    font-family: 'Space Mono', monospace; 
 }
 
 .project-btn {
@@ -322,7 +308,7 @@ nav ul li a:hover {
     color: #ff6347;
 }
 
-/* 9. CONTACT SECTION */
+
 #contact {
     text-align: center;
 }
@@ -357,7 +343,6 @@ nav ul li a:hover {
     font-family: 'Space Mono', monospace;
 }
 
-/* 10. SCROLL ANIMATION CLASSES (Used by JS) */
 .hidden {
     opacity: 0;
     filter: blur(5px);
@@ -371,7 +356,7 @@ nav ul li a:hover {
     transform: translateY(0);
 }
 
-/* 11. MEDIA QUERIES (Responsiveness) - ALWAYS AT THE BOTTOM */
+
 @media (max-width: 1024px) {
     .home-container {
         padding: 40px;
@@ -420,7 +405,7 @@ nav ul li a:hover {
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        justify-content: center; /* Center vertically on mobile */
+        justify-content: center; 
     }
     
     .intro-text {
@@ -436,6 +421,6 @@ nav ul li a:hover {
     }
 
     .typewriter {
-        font-size: 2rem; /* Smaller text for mobile */
+        font-size: 2rem; 
     }
 }

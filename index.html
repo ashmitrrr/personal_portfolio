@@ -119,8 +119,6 @@
     </div>
 </main>
 <script>
-    // 1. Configure the Observer
-    // threshold: 0.2 means "Wait until 20% of the element is visible"
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             console.log(entry)
@@ -130,7 +128,6 @@
         });
     }, { threshold: 0.2 }); 
 
-    // 2. Tell the observer to watch all sections
     const hiddenElements = document.querySelectorAll('.section-container');
     hiddenElements.forEach((el) => {
         el.classList.add('hidden');
