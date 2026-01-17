@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ashmit's Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/803fa55602.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<main> 
+    <header>
+        <div class="logo">
+            <img src="logog.png" alt="ashmit">
+        </div> 
+        <nav class="nav">
+            <ul>
+                <li class="home"><a href="#home">Home</a></li>
+                <li class="about"><a href="#about">About Me</a></li>
+                <li class="projects"><a href="#projects">Projects</a></li>
+                <li class="contact"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="home-container" id="home">
+        <div class="intro-text">
+          <h1 class="typewriter">
+            hi, <span id="welcome">ashmit</span> here.
+          </h1>
+          <br><br><br>
+
+          <h2>welcome to my Portfolio.<br></h2>
+          <h2 id="agn">feel free to look around.</h2>
+          <br><br><br>
+          
+          <div class="cta-buttons">
+            <a href="ResumeAsh.pdf" target="_blank" class="btn">View CV</a>
+            <a href="mailto:rainaashmit@gmail.com" class="btn">Say HI</a>
+          </div>
+          
+          <!-- Social icons -->
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ashmit-raina-15b816326/" target="_blank"><i class="fa-brands fa-linkedin fa-3x" style="color: #a62828;" id="linkedin"></i></a>
+            <a href="https://www.instagram.com/ashhmit_raina/" target="_blank"><i class="fa-brands fa-instagram fa-3x" style="color: #a62828;" id="insta"></i></a>
+            <a href="https://github.com/ashmitrrr" target="_blank"><i class="fa-brands fa-github fa-3x" style="color: #a62828;" id="git" ></i></a>
+          </div>
+        </div>
+      
+        <div class="intro-image">
+          <img src="profile.jpg" alt="Ashmit Profile Photo">
+        </div>
+      </div>
+
+      <div id="about" class="section-container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I am a second-year <strong>Computer Science (Honours)</strong> student at UTS Sydney, majoring in <span class="highlight">AI & Data Analytics</span>.
+                </p>
+                <p>
+                    I don't just write code; I build tools that solve real problems. From analyzing financial markets with AI to building responsive frontends, I enjoy the entire stack. Currently, I'm deep-diving into <strong>Machine Learning</strong> and <strong>Python Automation</strong>.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fa-brands fa-python"></i> Python</div>
+                <div class="skill-item"><i class="fa-solid fa-brain"></i> AI / ML</div>
+                <div class="skill-item"><i class="fa-brands fa-html5"></i> HTML/CSS</div>
+                <div class="skill-item"><i class="fa-brands fa-git-alt"></i> Git</div>
+                <div class="skill-item"><i class="fa-solid fa-chart-line"></i> Data Viz</div>
+                <div class="skill-item"><i class="fa-solid fa-terminal"></i> Streamlit</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" class="section-container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>📈 SentimenTrade</h3>
+                    <p>A real-time financial dashboard that uses AI (BERT) to analyze news sentiment and correlate it with stock price action.</p>
+                    <div class="tech-stack">
+                        <span>Python</span><span>Streamlit</span><span>NLP</span><span>Yahoo Finance</span>
+                    </div>
+                    <a href="https://github.com/ashmitrrr/SentimenTrade" target="_blank" class="project-btn">View Code <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>🎨 Personal Portfolio</h3>
+                    <p>My digital home. Built with pure HTML/CSS (no heavy frameworks) to ensure lightning-fast performance and clean design.</p>
+                    <div class="tech-stack">
+                        <span>HTML5</span><span>CSS3</span><span>Responsive Design</span>
+                    </div>
+                    <a href="#" class="project-btn">You are here</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="contact" class="section-container">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="contact-text">
+            I am currently open to **internships** and collaborative projects. <br>
+            If you have an idea or just want to chat about AI, hit me up!
+        </p>
+        <a href="mailto:rainaashmit@gmail.com" class="big-contact-btn">Say Hello 👋</a>
+        
+        <div class="footer">
+            <p>Designed & Built by Ashmit Raina © 2026</p>
+        </div>
+    </div>
+</main>
+<script>
+    // 1. Configure the Observer
+    // threshold: 0.2 means "Wait until 20% of the element is visible"
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            console.log(entry)
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } 
+        });
+    }, { threshold: 0.2 }); 
+
+    // 2. Tell the observer to watch all sections
+    const hiddenElements = document.querySelectorAll('.section-container');
+    hiddenElements.forEach((el) => {
+        el.classList.add('hidden');
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
