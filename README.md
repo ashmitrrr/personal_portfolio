@@ -1,4 +1,4 @@
-# Ashmit's Personal Portfolio 👨‍💻
+# Ashmit's Personal Portfolio
 
 A responsive, modern personal portfolio website built to showcase my projects in AI, Data Analytics, and Software Development. Designed with a focus on clean UI, performance, and accessibility.
 
