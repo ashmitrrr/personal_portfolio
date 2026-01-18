@@ -321,7 +321,7 @@ nav ul li a:hover {
 .big-contact-btn {
     display: inline-block;
     padding: 15px 40px;
-    background-color: #ff6347;
+    background-color: #a62828;
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
@@ -332,7 +332,7 @@ nav ul li a:hover {
 }
 
 .big-contact-btn:hover {
-    background-color: #e5533d;
+    background-color: #f3826ecf;
     transform: scale(1.05);
 }
 
