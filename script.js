@@ -1,16 +1,76 @@
-/* ════════════════════════════════════════════
-   ASHMIT PORTFOLIO — MAIN SCRIPT
-   - Three.js particle field
-   - Custom cursor
-   - GSAP scroll animations
-   - Text rotator
-   - Counter animations
-   - Nav scroll effect
-   - Mobile menu
-   ════════════════════════════════════════════ */
+/* js */
 
-// ── Register GSAP plugins ──
+// GSAP plugins ──
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+// ══════════════════════════════════════════
+// INTRO LOADER
+// ══════════════════════════════════════════
+(function initLoader() {
+    const loader  = document.getElementById('intro-loader');
+    const logo    = document.getElementById('loader-logo');
+    const bar     = document.getElementById('loader-bar');
+    const label   = document.getElementById('loader-label');
+    const ringA   = document.querySelector('.ring-a');
+    const ringB   = document.querySelector('.ring-b');
+    const ringC   = document.querySelector('.ring-c');
+
+    document.body.style.overflow = 'hidden';
+
+    const labels = ['initialising...', 'loading assets...', 'almost there...', 'welcome.'];
+    let progress = 0;
+    let labelIdx = 0;
+
+    setTimeout(() => {
+        [ringA, ringB, ringC].forEach((ring, i) => {
+            ring.style.transition = `transform 0.7s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.08}s, opacity 0.5s ease ${i * 0.08}s`;
+            ring.style.transform  = 'translate(-50%, -50%) scale(1)';
+            ring.style.opacity    = '1';
+        });
+    }, 200);
+
+    setTimeout(() => {
+        logo.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.34,1.4,0.64,1), filter 1s ease';
+        logo.style.opacity    = '1';
+        logo.style.transform  = 'scale(1)';
+        logo.style.filter     = 'drop-shadow(0 0 24px rgba(255,99,71,0.7)) drop-shadow(0 0 60px rgba(255,99,71,0.3))';
+    }, 500);
+
+    const interval = setInterval(() => {
+        progress += Math.random() * 18 + 8;
+        if (progress > 100) progress = 100;
+        bar.style.width = progress + '%';
+
+        const newIdx = Math.floor((progress / 100) * (labels.length - 1));
+        if (newIdx !== labelIdx) {
+            labelIdx = newIdx;
+            label.style.opacity = '0';
+            setTimeout(() => {
+                label.textContent = labels[labelIdx];
+                label.style.transition = 'opacity 0.3s';
+                label.style.opacity = '1';
+            }, 150);
+        }
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            label.textContent = 'welcome.';
+
+            setTimeout(() => {
+                logo.style.transition = 'filter 0.4s ease, transform 0.4s ease';
+                logo.style.filter     = 'drop-shadow(0 0 40px rgba(255,99,71,1)) drop-shadow(0 0 80px rgba(255,99,71,0.5))';
+                logo.style.transform  = 'scale(1.08)';
+            }, 300);
+
+            setTimeout(() => {
+                loader.classList.add('exit');
+                document.body.style.overflow = '';
+                setTimeout(() => { loader.style.display = 'none'; }, 900);
+            }, 900);
+        }
+    }, 120);
+})();
+
 
 // ══════════════════════════════════════════
 // THREE.JS — Particle Background
@@ -82,7 +142,6 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
     const particles = new THREE.Points(geo, shaderMat);
     scene.add(particles);
 
-    // Mouse parallax
     let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
     document.addEventListener('mousemove', (e) => {
         mouseX = (e.clientX / window.innerWidth - 0.5) * 120;
@@ -141,14 +200,12 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
         ring.style.top  = ringY + 'px';
     })();
 
-    // Hover effects
     const hoverEls = document.querySelectorAll('a, button, [data-tilt], .skill-item, .tag');
     hoverEls.forEach(el => {
         el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
         el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
     });
 
-    // Hide cursor when leaving window
     document.addEventListener('mouseleave', () => {
         dot.style.opacity = '0';
         ring.style.opacity = '0';
@@ -291,7 +348,6 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 // TICKER / MARQUEE
 // ══════════════════════════════════════════
 (function initTicker() {
-    // Inject ticker before the about section
     const aboutSection = document.getElementById('about');
     if (!aboutSection) return;
 
@@ -314,11 +370,7 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 })();
 
 
-// ══════════════════════════════════════════
-// GSAP — Advanced scroll animations
-// ══════════════════════════════════════════
 (function initGSAP() {
-    // Smooth project cards stagger
     gsap.utils.toArray('.project-card').forEach((card, i) => {
         gsap.fromTo(card,
             { y: 60, opacity: 0 },
@@ -335,7 +387,6 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
         );
     });
 
-    // Section headings glitch-in
     gsap.utils.toArray('.section-heading').forEach((heading) => {
         gsap.fromTo(heading,
             { opacity: 0, y: 35, skewY: 2 },
@@ -351,7 +402,6 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
         );
     });
 
-    // Timeline cards
     gsap.utils.toArray('.timeline-item').forEach((item, i) => {
         gsap.fromTo(item,
             { x: -50, opacity: 0 },
@@ -369,10 +419,6 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
     });
 })();
 
-
-// ══════════════════════════════════════════
-// VANILLA TILT — Re-init after DOM ready
-// ══════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof VanillaTilt !== 'undefined') {
         VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
@@ -384,10 +430,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-// ══════════════════════════════════════════
-// SMOOTH ANCHOR SCROLL
-// ══════════════════════════════════════════
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
         const target = document.querySelector(link.getAttribute('href'));

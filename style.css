@@ -1,6 +1,4 @@
-/* ═══════════════════════════════════════════════════
-   ASHMIT RAINA PORTFOLIO — FUTURISTIC DARK THEME
-   ═══════════════════════════════════════════════════ */
+/* css */
 
 :root {
     --bg:        #050508;
@@ -25,7 +23,6 @@
     --glow:      0 0 80px rgba(255,99,71,0.15);
 }
 
-/* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -37,7 +34,6 @@ body {
     cursor: none;
 }
 
-/* ── THREE.JS Canvas ── */
 #bg-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -46,7 +42,6 @@ body {
     pointer-events: none;
 }
 
-/* ── Noise Overlay ── */
 .noise-overlay {
     position: fixed;
     inset: 0;
@@ -57,7 +52,6 @@ body {
     background-size: 200px;
 }
 
-/* ── Custom Cursor ── */
 .cursor-dot {
     position: fixed;
     width: 6px; height: 6px;
@@ -87,7 +81,6 @@ body {
     background: rgba(255,99,71,0.05);
 }
 
-/* ── NAVBAR ── */
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -185,7 +178,6 @@ body {
     50%       { box-shadow: 0 0 14px #4ade80, 0 0 24px rgba(74,222,128,0.3); }
 }
 
-/* ── Hamburger ── */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -209,7 +201,6 @@ body {
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── Mobile Menu ── */
 .mobile-menu {
     position: fixed;
     inset: 0;
@@ -244,10 +235,8 @@ body {
 
 .mob-link:hover { color: var(--accent); }
 
-/* ── MAIN ── */
 main { position: relative; z-index: 2; }
 
-/* ── HERO ── */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -424,7 +413,6 @@ main { position: relative; z-index: 2; }
     transform: translateY(-3px);
 }
 
-/* ── Hero Image ── */
 .hero-image-wrap {
     position: relative;
     flex-shrink: 0;
@@ -522,7 +510,6 @@ main { position: relative; z-index: 2; }
     50%      { opacity: 1;   transform: scaleY(1.1); }
 }
 
-/* ── SECTIONS ── */
 .section {
     position: relative;
     padding: 120px 60px;
@@ -578,7 +565,6 @@ main { position: relative; z-index: 2; }
     background-clip: text;
 }
 
-/* ── ABOUT ── */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -633,7 +619,6 @@ main { position: relative; z-index: 2; }
     margin-top: 8px;
 }
 
-/* ── Skills Board ── */
 .skills-board {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -692,7 +677,6 @@ main { position: relative; z-index: 2; }
     color: var(--text);
 }
 
-/* ── EXPERIENCE / TIMELINE ── */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -800,7 +784,6 @@ main { position: relative; z-index: 2; }
     color: var(--text-3);
 }
 
-/* ── PROJECTS ── */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -934,7 +917,6 @@ main { position: relative; z-index: 2; }
     border-color: var(--accent);
 }
 
-/* ── CONTACT ── */
 .contact-section { text-align: center; }
 
 .contact-inner {
@@ -1034,7 +1016,6 @@ main { position: relative; z-index: 2; }
     text-decoration: none;
     font-family: var(--font-mono);
     font-size: 0.82rem;
-    transition: color 0.25s;
     padding: 8px 0;
     border-bottom: 1px solid transparent;
     transition: color 0.25s, border-color 0.25s;
@@ -1047,7 +1028,6 @@ main { position: relative; z-index: 2; }
 
 .csocial-link i { font-size: 1rem; }
 
-/* ── FOOTER ── */
 .footer {
     position: relative;
     z-index: 2;
@@ -1062,7 +1042,6 @@ main { position: relative; z-index: 2; }
     color: var(--text-3);
 }
 
-/* ── SCROLL ANIMATIONS ── */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -1091,7 +1070,6 @@ main { position: relative; z-index: 2; }
     transform: translateY(0) translateX(0);
 }
 
-/* ── HORIZONTAL SCROLLING LINE ── */
 .ticker-section {
     position: relative;
     z-index: 2;
@@ -1128,7 +1106,104 @@ main { position: relative; z-index: 2; }
     to   { transform: translateX(-50%); }
 }
 
-/* ── RESPONSIVE ── */
+/* ── INTRO LOADER ── */
+.intro-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.loader-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+}
+
+.loader-logo-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+}
+
+.loader-logo {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    filter: drop-shadow(0 0 0px rgba(255,99,71,0));
+    transform: scale(0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.logo-shadow-ring {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    border: 1px solid rgba(255,99,71,0.3);
+}
+
+.ring-a { width: 110px; height: 110px; }
+.ring-b { width: 145px; height: 145px; border-color: rgba(255,99,71,0.18); }
+.ring-c { width: 180px; height: 180px; border-color: rgba(255,99,71,0.08); }
+
+.loader-bar-wrap {
+    width: 180px;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.4s 0.6s forwards;
+}
+
+.loader-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-3));
+    border-radius: 2px;
+    transition: width 0.05s linear;
+}
+
+.loader-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    opacity: 0;
+    animation: fadeIn 0.4s 0.6s forwards;
+    min-height: 1em;
+}
+
+.intro-loader.exit {
+    animation: loaderExit 0.9s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes loaderExit {
+    0%   { opacity: 1; transform: scale(1); }
+    60%  { opacity: 1; transform: scale(1.03); }
+    100% { opacity: 0; transform: scale(1.06); pointer-events: none; }
+}
+
 @media (max-width: 1100px) {
     .hero { padding: 120px 40px 80px; }
     .section { padding: 100px 40px; }
