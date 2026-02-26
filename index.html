@@ -7,475 +7,480 @@
     <meta name="description" content="Ashmit Raina — Computer Science student at UTS, specialising in AI & Data Analytics. Building intelligent systems and tools that solve real problems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cabinet+Grotesk:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <script src="https://kit.fontawesome.com/803fa55602.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<!-- INTRO LOADER -->
-<div class="intro-loader" id="intro-loader">
-    <div class="loader-bg"></div>
-    <div class="loader-content">
-        <div class="loader-logo-wrap">
-            <div class="logo-shadow-ring ring-a"></div>
-            <div class="logo-shadow-ring ring-b"></div>
-            <div class="logo-shadow-ring ring-c"></div>
-            <img src="logog.png" alt="AR" class="loader-logo" id="loader-logo">
+<!-- ═══ TERMINAL LOADER ═══ -->
+<div id="loader">
+    <div class="loader-shell">
+        <div class="loader-topbar">
+            <div class="ltb-dots"><span></span><span></span><span></span></div>
+            <span class="ltb-title">ashmit@portfolio — zsh</span>
         </div>
-        <div class="loader-bar-wrap">
-            <div class="loader-bar" id="loader-bar"></div>
+        <div class="loader-lines" id="loader-lines"></div>
+        <div class="loader-prompt">
+            <span class="prompt-prefix">ashmit@portfolio:~$&nbsp;</span>
+            <span id="loader-typing"></span>
+            <span class="prompt-caret" id="prompt-caret">█</span>
         </div>
-        <p class="loader-label" id="loader-label">initialising...</p>
     </div>
 </div>
 
-<!-- Custom Cursor -->
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
+<!-- ═══ CROSSHAIR CURSOR ═══ -->
+<div id="cursor">
+    <div class="c-h"></div>
+    <div class="c-v"></div>
+    <div class="c-dot"></div>
+    <div class="c-label" id="c-label"></div>
+</div>
 
-<!-- Noise Overlay -->
-<div class="noise-overlay"></div>
+<!-- ═══ NOISE ═══ -->
+<div class="noise"></div>
 
-<!-- THREE.JS Canvas -->
+<!-- ═══ BG CANVAS ═══ -->
 <canvas id="bg-canvas"></canvas>
 
-<!-- NAVIGATION -->
-<nav class="navbar" id="navbar">
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
     <div class="nav-logo">
-        <span class="logo-bracket">[</span>
+        <span class="nav-bracket">[</span>
         <img src="logog.png" alt="AR" class="nav-logo-img">
-        <span class="logo-bracket">]</span>
+        <span class="nav-bracket">]</span>
     </div>
     <ul class="nav-links">
-        <li><a href="#home" class="nav-link" data-text="Home">Home</a></li>
-        <li><a href="#about" class="nav-link" data-text="About">About</a></li>
-        <li><a href="#experience" class="nav-link" data-text="Experience">Experience</a></li>
-        <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
-        <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+        <li><a href="#home"       class="nav-link">Home</a></li>
+        <li><a href="#about"      class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects"   class="nav-link">Projects</a></li>
+        <li><a href="#contact"    class="nav-link">Contact</a></li>
     </ul>
-    <div class="nav-status">
-        <span class="status-dot"></span>
-        <span class="status-text">Available for internships</span>
-    </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
 </nav>
 
-<!-- MOBILE MENU -->
+<!-- ═══ MOBILE MENU ═══ -->
 <div class="mobile-menu" id="mobile-menu">
     <ul>
-        <li><a href="#home" class="mob-link">Home</a></li>
-        <li><a href="#about" class="mob-link">About</a></li>
+        <li><a href="#home"       class="mob-link">Home</a></li>
+        <li><a href="#about"      class="mob-link">About</a></li>
         <li><a href="#experience" class="mob-link">Experience</a></li>
-        <li><a href="#projects" class="mob-link">Projects</a></li>
-        <li><a href="#contact" class="mob-link">Contact</a></li>
+        <li><a href="#projects"   class="mob-link">Projects</a></li>
+        <li><a href="#contact"    class="mob-link">Contact</a></li>
     </ul>
 </div>
 
 <main>
 
-<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
 <section id="home" class="hero">
-    <div class="hero-inner">
-        <div class="hero-eyebrow">
-            <span class="eyebrow-line"></span>
-            <span class="eyebrow-tag">UTS Sydney · CS (Hons) · AI & Data</span>
-        </div>
 
-        <h1 class="hero-name">
-            <span class="name-line" id="name-line-1">Ashmit</span>
-            <span class="name-line accent" id="name-line-2">Raina.</span>
-        </h1>
-
-        <div class="hero-subtitle">
-            <span class="subtitle-prefix">I </span>
-            <span class="subtitle-rotating" id="rotating-text"></span>
-        </div>
-
-        <p class="hero-desc">
-            Building intelligent systems at the intersection of AI, data, and cloud.
-            Turning complex problems into elegant, working solutions.
-        </p>
-
-        <div class="hero-cta">
-            <a href="CV_portfolio.pdf" target="_blank" class="btn-primary">
-                <span>View Resume</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="mailto:rainaashmit@gmail.com" class="btn-ghost">Say Hello 👋</a>
-        </div>
-
-        <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/ashmit-raina-15b816326/" target="_blank" class="social-link" aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/ashmitrrr" target="_blank" class="social-link" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.instagram.com/ashhmit_raina/" target="_blank" class="social-link" aria-label="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-        </div>
+    <!-- top eyebrow strip -->
+    <div class="hero-eyebrow">
+        <span class="he-tag">UTS Sydney · CS (Hons) · AI &amp; Data</span>
+        <div class="he-avail"><span class="status-dot"></span></div>
     </div>
 
-    <div class="hero-image-wrap">
-        <div class="hero-image-ring ring-1"></div>
-        <div class="hero-image-ring ring-2"></div>
-        <div class="hero-image-ring ring-3"></div>
-        <div class="hero-img-container">
-            <img src="profile.jpg" alt="Ashmit Raina" class="hero-img" loading="eager">
-        </div>
-    </div>
+    <!-- main grid: left content | right image -->
+    <div class="hero-grid">
 
-    <div class="scroll-hint">
-        <div class="scroll-line"></div>
-        <span>scroll</span>
-    </div>
-</section>
-
-<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
-<section id="about" class="section about-section">
-    <div class="section-label">
-        <span class="label-num">01</span>
-        <span class="label-text">About</span>
-    </div>
-
-    <div class="about-grid">
-        <div class="about-left reveal-left">
-            <h2 class="section-heading">Bridging the gap between<br><span class="gradient-text">intelligence & engineering.</span></h2>
-            <p class="about-para">
-                I'm a third-year Computer Science (Honours) student at UTS Sydney, majoring in AI & Data Analytics with a sub-major in AWS. I'm driven by one core belief: the best technology is invisible — it just works, elegantly.
-            </p>
-            <p class="about-para">
-                Beyond lectures, I serve as Secretary & Treasurer at <span class="highlight">180 Degrees Consulting UTS</span>, and am active in the UTS AI Society and StartUp Link. I'm also building <span class="highlight">CampChat</span> — an anonymous verified student chat platform currently in pre-launch.
-            </p>
-
-            <div class="about-stats">
-                <div class="stat-item">
-                    <span class="stat-num" data-target="5">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Projects Live</span>
+        <!-- LEFT: name + sub content -->
+        <div class="hero-left">
+            <div class="hero-headline">
+                <div class="hl-row" id="hl-row-1"><span class="hl-word">ASHMIT</span></div>
+                <div class="hl-row" id="hl-row-2">
+                    <span class="hl-word accent-stroke">RAINA</span><span class="hl-period">.</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-num" data-target="3">0</span><span class="stat-suffix">rd</span>
-                    <span class="stat-label">Year at UTS</span>
+            </div>
+
+            <div class="hero-body">
+                <p class="hero-typerow">
+                    <span class="type-prefix">I </span><span id="rotating-text" class="type-cycling"></span>
+                </p>
+                <p class="hero-desc">Building intelligent systems at the intersection of AI, data, and cloud. Turning complex problems into elegant, working solutions.</p>
+                <div class="hero-cta">
+                    <a href="CV_portfolio.pdf" target="_blank" class="btn-block">View Resume <span class="btn-arrow">→</span></a>
+                    <a href="/cdn-cgi/l/email-protection#502231393e313123383d392410373d31393c7e333f3d" class="btn-outline">Say Hello 👋</a>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-num" data-target="4">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Technologies</span>
+                <div class="hero-socials">
+                    <a href="https://www.linkedin.com/in/ashmit-raina-15b816326/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/ashmitrrr"                        target="_blank" class="social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/ashhmit_raina/"            target="_blank" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>
 
-        <div class="about-right reveal-right">
-            <div class="skills-board">
-                <div class="skills-header">
-                    <span class="skills-title">// tech_stack.json</span>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">Languages</span>
-                    <div class="skill-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">AI / ML</span>
-                    <div class="skill-tags">
-                        <span class="tag">PyTorch</span>
-                        <span class="tag">BERT</span>
-                        <span class="tag">spaCy</span>
-                        <span class="tag">CNNs</span>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">Cloud & DevOps</span>
-                    <div class="skill-tags">
-                        <span class="tag">AWS</span>
-                        <span class="tag">GCP</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Git</span>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">Web & Data</span>
-                    <div class="skill-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Supabase</span>
-                        <span class="tag">Plotly</span>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">Tools</span>
-                    <div class="skill-tags">
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">Jupyter</span>
-                        <span class="tag">Figma</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════ EXPERIENCE ═══════════════════════ -->
-<section id="experience" class="section experience-section">
-    <div class="section-label">
-        <span class="label-num">02</span>
-        <span class="label-text">Experience</span>
-    </div>
-    <h2 class="section-heading centered reveal-up">Where I've been,<br><span class="gradient-text">what I've done.</span></h2>
-
-    <div class="timeline">
-        <div class="timeline-item reveal-up" data-delay="0">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
-                <div class="tcard-header">
-                    <div>
-                        <h3 class="tcard-title">Tech Exec</h3>
-                        <p class="tcard-org">UTS AI Society</p>
-                    </div>
-                    <span class="tcard-badge active">Current</span>
-                </div>
-                <p class="tcard-desc">Design and deliver technical workshops on Python and Machine Learning fundamentals for 100+ students across diverse technical backgrounds</p>
-                <div class="tcard-tags">
-                    <span>AI</span><span>Machine Learning</span><span>StartUps</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline-item reveal-up" data-delay="100">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
-                <div class="tcard-header">
-                    <div>
-                        <h3 class="tcard-title">Secretary & Treasurer</h3>
-                        <p class="tcard-org">180 Degrees Consulting UTS</p>
-                    </div>
-                    <span class="tcard-badge current">Current</span>
-                </div>
-                <p class="tcard-desc">Overseeing financial operations and strategic coordination for UTS's branch of the world's largest student consultancy, delivering pro-bono solutions to nonprofits and social enterprises.</p>
-                <div class="tcard-tags">
-                    <span>Leadership</span><span>Finance</span><span>Strategy</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline-item reveal-up" data-delay="200">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
-                <div class="tcard-header">
-                    <div>
-                        <h3 class="tcard-title">Founder</h3>
-                        <p class="tcard-org">CampChat · campchat.app</p>
-                    </div>
-                    <span class="tcard-badge building">Building</span>
-                </div>
-                <p class="tcard-desc">Designing and building an anonymous verified student platform for campus communities. Implementing full-stack architecture with React, Node.js, and Supabase — currently in pre-launch with a 4-week organic growth strategy.</p>
-                <div class="tcard-tags">
-                    <span>React</span><span>Node.js</span><span>Supabase</span><span>Product</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
-<section id="projects" class="section projects-section">
-    <div class="section-label">
-        <span class="label-num">03</span>
-        <span class="label-text">Projects</span>
-    </div>
-    <h2 class="section-heading centered reveal-up">Things I've<br><span class="gradient-text">shipped.</span></h2>
-
-    <div class="projects-grid">
-
-        <!-- CampChat - Featured -->
-        <div class="project-card featured reveal-up" data-delay="0" data-tilt data-tilt-max="4" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.08">
-            <div class="pcard-glow"></div>
-            <div class="pcard-top">
-                <div class="pcard-icon"><img src="logo copy.png" style="height:32px;width:auto;border-radius:6px;"></div>
-                <span class="pcard-label">Featured · In Development</span>
-            </div>
-            <h3 class="pcard-title">CampChat</h3>
-            <p class="pcard-desc">Anonymous verified student chat platform for campus communities. Full-stack app with passcode auth, real-time messaging, and a pre-launch marketing strategy targeting organic growth at UTS.</p>
-            <div class="pcard-stack">
-                <span>React</span><span>Node.js</span><span>Supabase</span><span>Auth</span>
-            </div>
-            <div class="pcard-links">
-                <a href="https://campchat.app" target="_blank" class="plink primary">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
-                </a>
-            </div>
-        </div>
-        
-        <!-- SentimenTrade -->
-        <div class="project-card reveal-up" data-delay="50" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.08">
-            <div class="pcard-glow"></div>
-            <div class="pcard-top">
-                <div class="pcard-icon">✊</div>
-                <span class="pcard-label">COMPUTER VISION · AR</span>
-            </div>
-            <h3 class="pcard-title">Gesture AR — Stickman Fight</h3>
-            <p class="pcard-desc">Real-time hand gesture fighting game using your webcam. No controllers — just your hands. Built with MediaPipe and OpenCV featuring animated stickmen, AI opponent, health bars, screen shake, and hit particles.</p>
-            <div class="pcard-stack">
-                <span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>NumPy</span>
-            </div>
-            <div class="pcard-links">
-                <a href="https://github.com/ashmitrrr/gesture_fight" target="_blank" class="plink">
-                    <i class="fa-brands fa-github"></i> Code
-                </a>
-            </div>
-        </div>
-
-        <!-- SentimenTrade -->
-        <div class="project-card reveal-up" data-delay="50" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.08">
-            <div class="pcard-glow"></div>
-            <div class="pcard-top">
-                <div class="pcard-icon">📈</div>
-                <span class="pcard-label">NLP + Finance</span>
-            </div>
-            <h3 class="pcard-title">SentimenTrade</h3>
-            <p class="pcard-desc">Real-time dashboard correlating stock prices with news sentiment. Integrated yfinance for live market data and FinBERT to analyze headlines — visualising the link between media and price volatility.</p>
-            <div class="pcard-stack">
-                <span>Python</span><span>Streamlit</span><span>NLP</span><span>Yahoo Finance</span>
-            </div>
-            <div class="pcard-links">
-                <a href="https://github.com/ashmitrrr/SentimenTrade" target="_blank" class="plink">
-                    <i class="fa-brands fa-github"></i> Code
-                </a>
-                <a href="https://sentimentrade-aap-ashmit.streamlit.app" target="_blank" class="plink primary">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-                </a>
-            </div>
-        </div>
-
-        <!-- LayoverAI -->
-        <div class="project-card reveal-up" data-delay="100" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.08">
-            <div class="pcard-glow"></div>
-            <div class="pcard-top">
-                <div class="pcard-icon">✈️</div>
-                <span class="pcard-label">Cloud Native · Algorithms</span>
-            </div>
-            <h3 class="pcard-title">LayoverAI</h3>
-            <p class="pcard-desc">Cloud-native travel agent turning layovers into mini-vacations. Deployed on Google Cloud Run via Docker with a custom Greedy Scheduling Algorithm and SBERT for semantic itinerary matching.</p>
-            <div class="pcard-stack">
-                <span>Python</span><span>GCP</span><span>Docker</span><span>SBERT</span>
-            </div>
-            <div class="pcard-links">
-                <a href="https://github.com/ashmitrrr/LayoverAI" target="_blank" class="plink">
-                    <i class="fa-brands fa-github"></i> Code
-                </a>
-                <a href="https://layover-ai-208927299238.us-central1.run.app" target="_blank" class="plink primary">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-                </a>
-            </div>
-        </div>
-
-        <!-- AI Resume Analyzer -->
-        <div class="project-card reveal-up" data-delay="150" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.08">
-            <div class="pcard-glow"></div>
-            <div class="pcard-top">
-                <div class="pcard-icon">🤖</div>
-                <span class="pcard-label">NLP · Semantic AI</span>
-            </div>
-            <h3 class="pcard-title">AI Resume Analyzer</h3>
-            <p class="pcard-desc">Evaluates semantic compatibility between resumes and job descriptions using SBERT. Built and validated AI components with Docker for high-accuracy gap analysis. Deployed on Hugging Face Spaces.</p>
-            <div class="pcard-stack">
-                <span>Python</span><span>Docker</span><span>BERT</span><span>spaCy</span>
-            </div>
-            <div class="pcard-links">
-                <a href="https://github.com/ashmitrrr/Resume_Analyzer" target="_blank" class="plink">
-                    <i class="fa-brands fa-github"></i> Code
-                </a>
-                <a href="https://huggingface.co/spaces/ashmitrrr/ai-resume-analyzer" target="_blank" class="plink primary">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-                </a>
-            </div>
-        </div>
-
-        <!-- Expense Tracker -->
-        <div class="project-card reveal-up" data-delay="200" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.08">
-            <div class="pcard-glow"></div>
-            <div class="pcard-top">
-                <div class="pcard-icon">💸</div>
-                <span class="pcard-label">Data Viz · NLP</span>
-            </div>
-            <h3 class="pcard-title">AI Expense Tracker</h3>
-            <p class="pcard-desc">Intelligent finance dashboard with 'Smart Add' for natural language expense logging. Pandas and Plotly transform raw transaction data into interactive charts for real-time budget insights.</p>
-            <div class="pcard-stack">
-                <span>Python</span><span>Streamlit</span><span>Pandas</span><span>Plotly</span>
-            </div>
-            <div class="pcard-links">
-                <a href="https://github.com/ashmitrrr/Expense_Tracker" target="_blank" class="plink">
-                    <i class="fa-brands fa-github"></i> Code
-                </a>
-                <a href="https://personal-expensetracker-ar.streamlit.app" target="_blank" class="plink primary">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-                </a>
+        <!-- RIGHT: image -->
+        <div class="hero-right">
+            <div class="hero-img-wrap">
+                <div class="hero-img-corner tl"></div>
+                <div class="hero-img-corner tr"></div>
+                <div class="hero-img-corner bl"></div>
+                <div class="hero-img-corner br"></div>
+                <img src="profile.jpg" alt="Ashmit Raina" class="hero-img">
+                <div class="hero-img-overlay"></div>
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
-<section id="contact" class="section contact-section">
-    <div class="section-label">
-        <span class="label-num">04</span>
-        <span class="label-text">Contact</span>
+<!-- ═══ TICKER ═══ -->
+<div class="ticker-wrap">
+    <div class="ticker-inner" id="ticker-inner"></div>
+</div>
+
+<!-- ═══════════════════════════════════
+     ABOUT
+═══════════════════════════════════ -->
+<section id="about" class="section">
+    <div class="section-header">
+        <div class="sh-left">
+            <span class="sh-num">01</span>
+            <span class="sh-rule"></span>
+            <span class="sh-title">ABOUT</span>
+        </div>
+        <div class="sh-right"></div>
     </div>
 
-    <div class="contact-inner reveal-up">
-        <div class="contact-glow-orb"></div>
-        <p class="contact-eyebrow">Open to opportunities</p>
-        <h2 class="contact-heading">Let's build something<br><span class="gradient-text">remarkable.</span></h2>
-        <p class="contact-sub">I'm actively seeking internships and collaborations in AI, data, and cloud. If you have an idea, an opportunity, or just want to talk tech — my inbox is open.</p>
+    <div class="about-layout">
+        <!-- left: giant decorative number + heading -->
+        <div class="about-l">
+            <div class="deco-num" aria-hidden="true">01</div>
+            <h2 class="about-heading reveal-up">
+                Bridging the gap between<br>
+                <em>intelligence</em> &amp; engineering.
+            </h2>
+        </div>
 
-        <a href="mailto:rainaashmit@gmail.com" class="contact-btn">
-            <span class="contact-btn-text">Say Hello</span>
-            <span class="contact-btn-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-        </a>
+        <!-- right: copy + stats + skills -->
+        <div class="about-r">
+            <div class="about-copy reveal-up" data-delay="80">
+                <p>I'm a third-year Computer Science (Honours) student at UTS Sydney, majoring in AI &amp; Data Analytics with a sub-major in AWS. I'm driven by one core belief: the best technology is invisible — it just works, elegantly.</p>
+                <p>Beyond lectures, I serve as Secretary &amp; Treasurer at <mark>180 Degrees Consulting UTS</mark>, and am active in the UTS AI Society and StartUp Link. I'm also building <mark>CampChat</mark> — an anonymous verified student chat platform currently in pre-launch.</p>
+            </div>
 
-        <div class="contact-socials">
-            <a href="https://www.linkedin.com/in/ashmit-raina-15b816326/" target="_blank" class="csocial-link">
-                <i class="fa-brands fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/ashmitrrr" target="_blank" class="csocial-link">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-            </a>
-            <a href="https://www.instagram.com/ashhmit_raina/" target="_blank" class="csocial-link">
-                <i class="fa-brands fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
+            <div class="stats-row reveal-up" data-delay="160">
+                <div class="stat-block">
+                    <span class="stat-n" data-target="5">0</span><span class="stat-s">+</span>
+                    <span class="stat-l">Projects Live</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-n" data-target="3">0</span><span class="stat-s">rd</span>
+                    <span class="stat-l">Year at UTS</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-n" data-target="4">0</span><span class="stat-s">+</span>
+                    <span class="stat-l">Technologies</span>
+                </div>
+            </div>
+
+            <div class="skills-board reveal-up" data-delay="240">
+                <div class="sb-header">// tech_stack.json</div>
+                <div class="sb-row"><span class="sb-cat">Languages</span><div class="sb-tags"><span>Python</span><span>C++</span><span>JavaScript</span><span>SQL</span></div></div>
+                <div class="sb-row"><span class="sb-cat">AI / ML</span><div class="sb-tags"><span>PyTorch</span><span>BERT</span><span>spaCy</span><span>CNNs</span></div></div>
+                <div class="sb-row"><span class="sb-cat">Cloud &amp; DevOps</span><div class="sb-tags"><span>AWS</span><span>GCP</span><span>Docker</span><span>Git</span></div></div>
+                <div class="sb-row"><span class="sb-cat">Web &amp; Data</span><div class="sb-tags"><span>React</span><span>Node.js</span><span>Supabase</span><span>Plotly</span></div></div>
+                <div class="sb-row"><span class="sb-cat">Tools</span><div class="sb-tags"><span>Streamlit</span><span>Pandas</span><span>Jupyter</span><span>Figma</span></div></div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════
+     EXPERIENCE
+═══════════════════════════════════ -->
+<section id="experience" class="section">
+    <div class="section-header">
+        <div class="sh-left">
+            <span class="sh-num">02</span>
+            <span class="sh-rule"></span>
+            <span class="sh-title">EXPERIENCE</span>
+        </div>
+    </div>
+
+    <h2 class="section-big-heading reveal-up">Expereince and <br><span class="accent-text">Certifications.</span></h2>
+
+    <div class="exp-table">
+        <div class="exp-row reveal-up" data-delay="0">
+            <div class="er-num">01</div>
+            <div class="er-badge green">Current</div>
+            <div class="er-body">
+                <h3 class="er-title">Tech Exec</h3>
+                <p class="er-org">UTS AI Society</p>
+                <p class="er-desc">Design and deliver technical workshops on Python and Machine Learning fundamentals for 100+ students across diverse technical backgrounds</p>
+            </div>
+            <div class="er-tags"><span>AI</span><span>Machine Learning</span><span>StartUps</span></div>
+        </div>
+
+        <div class="exp-row reveal-up" data-delay="80">
+            <div class="er-num">02</div>
+            <div class="er-badge orange">Current</div>
+            <div class="er-body">
+                <h3 class="er-title">Secretary &amp; Treasurer</h3>
+                <p class="er-org">180 Degrees Consulting UTS</p>
+                <p class="er-desc">Overseeing financial operations and strategic coordination for UTS's branch of the world's largest student consultancy, delivering pro-bono solutions to nonprofits and social enterprises.</p>
+            </div>
+            <div class="er-tags"><span>Leadership</span><span>Finance</span><span>Strategy</span></div>
+        </div>
+
+        <div class="exp-row reveal-up" data-delay="160">
+            <div class="er-num">03</div>
+            <div class="er-badge gold">Building</div>
+            <div class="er-body">
+                <h3 class="er-title">Founder</h3>
+                <p class="er-org">CampChat · campchat.app</p>
+                <p class="er-desc">Designing and building an anonymous verified student platform for campus communities. Full-stack architecture with React, Node.js, and Supabase — currently in pre-launch with a 4-week organic growth strategy.</p>
+            </div>
+            <div class="er-tags"><span>React</span><span>Node.js</span><span>Supabase</span><span>Product</span></div>
+        </div>
+        <div class="exp-row reveal-up" data-delay="160">
+            <div class="er-num">04</div>
+            <div class="er-badge green">Volunteer</div>
+            <div class="er-body">
+                <h3 class="er-title">FEIT iMentor</h3>
+                <p class="er-org">UTS · Faculty of Engineering & IT · <a href="feit.png" target="_blank" class="cert-link">View Cert</a></p>
+                <p class="er-desc">Served as a Peer Mentor for the FEIT iMentor Program, providing 8 weeks of tailored academic and social guidance to first-year international students. Facilitated a smooth transition for mentees into the UTS community while refining my interpersonal leadership and reflective communication skills.</p>
+            </div>
+            <div class="er-tags"><span>Volunteer</span><span>Mentorship</span><span>community</span></div>
+        </div>
+        <div class="exp-row reveal-up" data-delay="160">
+            <div class="er-num">05</div>
+            <div class="er-badge orange">Certificate</div>
+            <div class="er-body">
+                <h3 class="er-title">Deloitte Australia Data Analytics Job Simulation</h3>
+                <p class="er-org">Deloitte · Forage · <a href="io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_JJc6mYQohpewvB5no_1772022601573_completion_certificate 2.pdf" target="_blank" class="cert-link">View Cert</a></p>
+                <p class="er-desc">Completed a Deloitte job simulation involving data analysis and forensic technology. It involved creating a data dashboard using Tableau and used Excel to classify data and draw business conclusions.</p>
+            </div>
+            <div class="er-tags"><span>Data Analysis</span><span>Excel</span><span>Tableau</span><span>Simulation</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PROJECTS — horizontal scroll
+═══════════════════════════════════ -->
+<section id="projects" class="section proj-intro-section">
+    <div class="section-header">
+        <div class="sh-left">
+            <span class="sh-num">03</span>
+            <span class="sh-rule"></span>
+            <span class="sh-title">PROJECTS</span>
+        </div>
+    </div>
+    <h2 class="section-big-heading reveal-up">Projects I've<br><span class="accent-text">Built.</span></h2>
+</section>
+
+<!-- pinned horizontal scroll track -->
+<div class="hscroll-outer" id="hscroll-outer">
+    <div class="hscroll-sticky" id="hscroll-sticky">
+        <div class="hscroll-inner" id="hscroll-inner">
+
+            <!-- CARD 1 — CampChat -->
+            <div class="hcard" style="background: linear-gradient(135deg, #0a0a12 0%, #0f0a14 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">01</div>
+                    <div class="hcard-icon"><img src="logo copy.png" alt="" style="height:32px;width:auto;"></div>
+                    <div class="hcard-num">001 — FEATURED</div>
+                    <div class="hcard-cat">Full-Stack · Real-Time · Product</div>
+                    <h3 class="hcard-title">Camp<br>Chat</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Anonymous verified student chat platform for campus communities. Full-stack app with passcode auth, real-time messaging, and a 4-week organic growth strategy targeting UTS students. Currently in active development.</p>
+                    <div class="hcard-stack"><span>React</span><span>Node.js</span><span>Supabase</span><span>Auth</span></div>
+                    <div class="hcard-links">
+                        <a href="https://campchat.app" target="_blank" class="hcard-link accent">Live Site ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 — GuardianCam -->
+            <div class="hcard" style="background: linear-gradient(135deg, #080c12 0%, #0a1208 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">02</div>
+                    <div class="hcard-icon">📷</div>
+                    <div class="hcard-num">002</div>
+                    <div class="hcard-cat">Computer Vision · AI Security</div>
+                    <h3 class="hcard-title">AI Guardian<br>Cam</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Real-time AI security camera system powered by YOLOv8. Transforms any Mac into an intelligent security monitor — two-stage detection pipeline (MOG2 + YOLO), instant Telegram photo alerts, ACK-gated WebSocket streaming, and adaptive CPU management at ~4% battery/hr.</p>
+                    <div class="hcard-stack"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>Flask</span><span>WebSocket</span></div>
+                    <div class="hcard-links">
+                        <a href="https://github.com/ashmitrrr/guardiancam" target="_blank" class="hcard-link">Code ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 — Gesture AR -->
+            <div class="hcard" style="background: linear-gradient(135deg, #0c0808 0%, #120a0a 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">03</div>
+                    <div class="hcard-icon">✊</div>
+                    <div class="hcard-num">003</div>
+                    <div class="hcard-cat">Computer Vision · AR</div>
+                    <h3 class="hcard-title">Gesture<br>AR Fight</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Real-time hand gesture fighting game using your webcam. No controllers — just your hands. MediaPipe + OpenCV with animated stickmen, AI opponent, health bars, screen shake, and hit particles. Zero hardware required.</p>
+                    <div class="hcard-stack"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>NumPy</span></div>
+                    <div class="hcard-links">
+                        <a href="https://github.com/ashmitrrr/gesture_fight" target="_blank" class="hcard-link">Code ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 — SentimenTrade -->
+            <div class="hcard" style="background: linear-gradient(135deg, #080c0a 0%, #0a120e 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">04</div>
+                    <div class="hcard-icon">📈</div>
+                    <div class="hcard-num">004</div>
+                    <div class="hcard-cat">NLP · Finance · Data</div>
+                    <h3 class="hcard-title">AI Sentiment<br>Trade</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Real-time dashboard correlating stock prices with news sentiment. FinBERT analyzes financial headlines to visualise the direct link between media coverage and price volatility. Live market data via yfinance.</p>
+                    <div class="hcard-stack"><span>Python</span><span>Streamlit</span><span>FinBERT</span><span>Yahoo Finance</span></div>
+                    <div class="hcard-links">
+                        <a href="https://github.com/ashmitrrr/SentimenTrade" target="_blank" class="hcard-link">Code ↗</a>
+                        <a href="https://sentimentrade-aap-ashmit.streamlit.app" target="_blank" class="hcard-link accent">Live ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5 — LayoverAI -->
+            <div class="hcard" style="background: linear-gradient(135deg, #08080c 0%, #0c0a14 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">05</div>
+                    <div class="hcard-icon">✈️</div>
+                    <div class="hcard-num">005</div>
+                    <div class="hcard-cat">Cloud Native · Algorithms</div>
+                    <h3 class="hcard-title">Layover<br>AI</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Cloud-native travel agent turning layovers into mini-vacations. Custom Greedy Scheduling Algorithm + SBERT for semantic itinerary matching. Deployed on Google Cloud Run via Docker.</p>
+                    <div class="hcard-stack"><span>Python</span><span>GCP</span><span>Docker</span><span>SBERT</span></div>
+                    <div class="hcard-links">
+                        <a href="https://github.com/ashmitrrr/LayoverAI" target="_blank" class="hcard-link">Code ↗</a>
+                        <a href="https://layover-ai-208927299238.us-central1.run.app" target="_blank" class="hcard-link accent">Live ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6 — AI Resume Analyzer -->
+            <div class="hcard" style="background: linear-gradient(135deg, #0a0c08 0%, #100e08 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">06</div>
+                    <div class="hcard-icon">🤖</div>
+                    <div class="hcard-num">006</div>
+                    <div class="hcard-cat">NLP · Semantic AI</div>
+                    <h3 class="hcard-title">AI Resume<br>Analyzer</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Evaluates semantic compatibility between resumes and job descriptions using SBERT. Dockerised pipeline for high-accuracy gap analysis deployed on Hugging Face Spaces. Validates alignment on key skills and experience.</p>
+                    <div class="hcard-stack"><span>Python</span><span>Docker</span><span>BERT</span><span>spaCy</span></div>
+                    <div class="hcard-links">
+                        <a href="https://github.com/ashmitrrr/Resume_Analyzer" target="_blank" class="hcard-link">Code ↗</a>
+                        <a href="https://huggingface.co/spaces/ashmitrrr/ai-resume-analyzer" target="_blank" class="hcard-link accent">Live ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 7 — AI Expense Tracker -->
+            <div class="hcard" style="background: linear-gradient(135deg, #0c0a08 0%, #120e08 100%);">
+                <div class="hcard-left">
+                    <div class="hcard-bg-num">07</div>
+                    <div class="hcard-icon">💸</div>
+                    <div class="hcard-num">007</div>
+                    <div class="hcard-cat">Data Viz · NLP</div>
+                    <h3 class="hcard-title">AI Expense<br>Tracker</h3>
+                </div>
+                <div class="hcard-right">
+                    <p class="hcard-desc">Intelligent finance dashboard with 'Smart Add' natural language expense logging. Pandas and Plotly transform raw transaction data into interactive charts for real-time budget insights and spending analysis.</p>
+                    <div class="hcard-stack"><span>Python</span><span>Streamlit</span><span>Pandas</span><span>Plotly</span></div>
+                    <div class="hcard-links">
+                        <a href="https://github.com/ashmitrrr/Expense_Tracker" target="_blank" class="hcard-link">Code ↗</a>
+                        <a href="https://personal-expensetracker-ar.streamlit.app" target="_blank" class="hcard-link accent">Live ↗</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- dots indicator -->
+    <div class="hscroll-dots" id="hscroll-dots">
+        <div class="hscroll-dot active"></div>
+        <div class="hscroll-dot"></div>
+        <div class="hscroll-dot"></div>
+        <div class="hscroll-dot"></div>
+        <div class="hscroll-dot"></div>
+        <div class="hscroll-dot"></div>
+        <div class="hscroll-dot"></div>
+    </div>
+    <div class="hscroll-counter" id="hscroll-counter"><span id="hscroll-cur">01</span> / 07</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     CONTACT
+═══════════════════════════════════ -->
+<section id="contact" class="section">
+    <div class="section-header">
+        <div class="sh-left">
+            <span class="sh-num">04</span>
+            <span class="sh-rule"></span>
+            <span class="sh-title">CONTACT</span>
+        </div>
+    </div>
+
+    <div class="contact-layout reveal-up">
+        <div class="contact-l">
+            <p class="contact-overline">Open to opportunities</p>
+            <h2 class="contact-heading">Let's build something<br><em>remarkable.</em></h2>
+            <p class="contact-sub">I'm actively seeking internships and collaborations in AI, data, and cloud. If you have an idea, an opportunity, or just want to talk tech — my inbox is open.</p>
+            <a href="/cdn-cgi/l/email-protection#0a786b63646b6b796267637e4a6d676b636624696567" class="contact-email-btn">
+                Say Hello
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+        <div class="contact-r">
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/ashmit-raina-15b816326/" target="_blank" class="cl-item">
+                    <span class="cl-icon"><i class="fa-brands fa-linkedin"></i></span>
+                    <span class="cl-label">LinkedIn</span>
+                    <span class="cl-arrow">↗</span>
+                </a>
+                <a href="https://github.com/ashmitrrr" target="_blank" class="cl-item">
+                    <span class="cl-icon"><i class="fa-brands fa-github"></i></span>
+                    <span class="cl-label">GitHub</span>
+                    <span class="cl-arrow">↗</span>
+                </a>
+                <a href="https://www.instagram.com/ashhmit_raina/" target="_blank" class="cl-item">
+                    <span class="cl-icon"><i class="fa-brands fa-instagram"></i></span>
+                    <span class="cl-label">Instagram</span>
+                    <span class="cl-arrow">↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer class="footer">
-    <span class="footer-text">Designed & Built by Ashmit Raina</span>
-    <span class="footer-copy">© 2026</span>
+    <span>Designed &amp; Built by Ashmit Raina</span>
+    <span>© 2026</span>
 </footer>
 
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
 </body>
-</html> 
+</html>
