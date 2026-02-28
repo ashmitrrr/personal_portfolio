@@ -1,6 +1,6 @@
 # Ashmit Raina — Personal Portfolio
 
-A production-grade personal portfolio built to showcase my work in AI, Data Analytics, and Computer Science. Designed with a focus on immersive animations, polished UI, and a premium dark aesthetic.
+A production-grade personal portfolio built to showcase my work in AI, Data Analytics, and Computer Science. Designed with a focus on immersive animations, polished UI, and some dark aesthetics I guess.
 
 <div align="center">
 
@@ -40,8 +40,8 @@ A production-grade personal portfolio built to showcase my work in AI, Data Anal
 
 - **Hero** — Name, rotating subtitle, CTA buttons, social links, animated profile image
 - **About** — Bio, tech stack board (`// tech_stack.json`), animated stat counters
-- **Experience** — Timeline: KPMG Vacationer Program, 180 Degrees Consulting, CampChat
-- **Projects** — CampChat, SentimenTrade, LayoverAI, AI Resume Analyzer, AI Expense Tracker
+- **Experience** — Timeline: Certificates, Mentorship, 180 Degrees Consulting, CampChat
+- **Projects** — CampChat, SentimenTrade, LayoverAI, AI Resume Analyzer, AI Expense Tracker etc (list might get updated time to time)
 - **Contact** — Email CTA with glow orb effect
 
 ---
