@@ -1,0 +1,56 @@
+ASHMIT RAINA 
+Sydney, NSW  |  0451 015 793  |  rainaashmit@gmail.com  |  LinkedIn  |  GitHub | Portfolio 
+ 
+PROFESSIONAL SUMMARY 
+Penultimate-year Computing Science (Honours) student at UTS (WAM: 81.62), majoring in AI & Data Analytics with an AWS sub-major. Strong 
+foundations in machine learning, agentic AI systems, and full-stack development with hands-on experience building and deploying production 
+AI pipelines, real-time data systems, and LLM-powered applications. 
+TECHNICAL SKILLS 
+Languages: Python, SQL, JavaScript, Node.js, PowerShell, Bash 
+Systems & Architecture: Distributed systems, REST APIs, FastAPI, real-time data pipelines, ETL architecture, WebSocket streaming, low-
+latency design 
+ML & Algorithms: NLP, Transformers (BERT/SBERT/FinBERT), computer vision (YOLOv8, OpenCV, MediaPipe), statistical modelling, 
+predictive analytics, NumPy, Pandas 
+AI Engineering: Agentic workflows, MCP, RAG systems, LLM fine-tuning 
+Infrastructure: AWS (EC2, S3), GCP, Docker, Supabase, PostgreSQL, Git 
+EXPERIENCE 
+Founder and Product Engineer  | BlueCrewAI.com May 2026 – Present 
+• Building AI agents for the Australian trades industry — shipped various agent MVPs; voice/text input → LLM-generated itemized quotes → 
+professional PDF emailed to client automatically. Stack: Next.js, Railway, Supabase, Vercel, Anthropic Claude API. 
+AI Engineering Intern | Netveva Remote Apr 2026 – Present 
+• Working with an Anthropic partner firm delivering AI enablement to enterprise and government clients across the Gulf region — building 
+agentic workflows using the various LLM API and contributing to client-facing AI prototypes. 
+Treasurer | 180 Degrees Consulting UTS Jan 2025 – Present 
+• Lead analytical problem-solving for client engagements, translating complex data into actionable insights; manage operational systems and 
+reporting workflows for 50+ member organization. 
+Tech Executive | UTS AI Society Oct 2025 – Present 
+• Design and deliver technical workshops on Python, Algorithms, and ML systems for 700+ student organization, coordinate AI hackathons 
+and showcases around the UTS tech community.  
+TECHNICAL PROJECTS 
+SentimenTrade – Real-Time Financial Analytics Engine  |  Python, FinBERT, Yahoo Finance API, Plotly, Pandas 
+• Engineered a real-time market data ingestion and processing system, integrating live financial feeds (yfinance API) with NLP-based 
+sentiment scoring (FinBERT) to correlate news signals with price movements. 
+• Built automated data pipeline architecture with sub-second processing latency, delivering interactive visualisations — demonstrating 
+applied systems thinking in a high-frequency, data-intensive domain directly relevant to capital markets. 
+GuardianCam – High-Performance Real-Time Detection System  |  Python, YOLOv8, OpenCV, WebSocket, REST APIs 
+• Designed and implemented a low-latency computer vision pipeline processing live video streams through YOLOv8 object detection models 
+with real-time WebSocket-based alert delivery — demonstrating high-throughput systems architecture. 
+• Engineered efficient data transformation workflows converting unstructured raw inputs into structured outputs at scale, with optimised 
+memory management and concurrent processing design. 
+Platinum Pacific Partners Candidate Briefing Agent |  Python, Claude API, Agentic Loops, Streamlit, JSON Schema Validation 
+• Built a two-step agentic ML pipeline (web research → structured JSON briefing) for Platinum Pacific Partners, a Sydney-based executive 
+search firm specialising in Australian funds management. 
+• Deployed live on Streamlit with schema validation, graceful failure handling, and a confidence report flagging unverifiable fields — scored 
+96/100 by the client. Client feedback: Highly Positive 
+Autonomous Drone Navigation System |  Python, YOLOv8, PyTorch, OpenCV, Deep Learning, HighRPD Dataset 
+• Trained a YOLOv8 model on the HighRPD dataset for autonomous drone navigation, implementing a real-time object detection pipeline for 
+obstacle avoidance and path planning in dynamic environments. 
+• Built end-to-end deep learning pipeline covering data preprocessing, model training, evaluation, and inference — achieving strong 
+detection accuracy across diverse aerial imagery conditions. 
+EDUCATION 
+University of Technology Sydney  |  Bachelor of Computing Science (Honours) — AI & Data Analytics  |  AWS Sub-Major Feb 2024 – Nov 
+2027 
+WAM: 81.62 (Distinction Average)  |  GPA: 6.13/7.0  |  Relevant coursework: DSA, Deep Learning & CNNs, Machine Learning, Cloud 
+Computing 
+Certifications: Deloitte Australia Data Analytics Job Simulation (Forage, Feb 2026) 
+Sydney | Student Visa Subclass 500 
