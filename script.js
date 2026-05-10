@@ -7,9 +7,9 @@ const projects = [
         link: "https://bluecrewai.com"
     },
     {
-        title: "Platinum Pacific Partners Agent",
+        title: "PPP Candidate BriefinhgAgent",
         cat: "Agentic Loops · NLP",
-        desc: "Two-step agentic ML pipeline (web research → structured JSON briefing) for a Sydney-based executive search firm.",
+        desc: "Built a candidate research agent thay uses two-step agentic ML pipeline (web research → structured JSON briefing) for a Sydney-based executive search firm(Platinum Pacififc Partners).",
         stack: ["Python", "Claude API", "Streamlit"],
         link: "#"
     },
