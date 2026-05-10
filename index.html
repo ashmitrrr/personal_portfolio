@@ -11,7 +11,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="no-scroll">
+
+<!-- ═══ LOADING SCREEN ═══ -->
+<div id="preloader" class="preloader">
+    <div class="loader-content">
+        <div class="bug-container">
+            <span id="the-bug" class="the-bug">🐛</span>
+            <span id="the-explosion" class="the-explosion">💥</span>
+        </div>
+        <div class="terminal-loader">
+            <div id="term-line-1" class="term-line"></div>
+            <div id="term-line-2" class="term-line"></div>
+            <div id="term-line-3" class="term-line"></div>
+        </div>
+    </div>
+</div>
 
 <!-- ═══ INTERACTIVE BACKGROUND ═══ -->
 <canvas id="bg-canvas"></canvas>
@@ -275,6 +290,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

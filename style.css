@@ -38,6 +38,72 @@ body {
     position: relative;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════
+   PRELOADER (LOADING SCREEN)
+═══════════════════════════════════ */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.bug-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-bug {
+    font-size: 4rem;
+    position: absolute;
+}
+
+.the-explosion {
+    font-size: 5rem;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.terminal-loader {
+    font-family: var(--font-mono);
+    color: var(--orange-accent);
+    font-size: 1.1rem;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+}
+
+.term-line {
+    height: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 #bg-canvas {
     position: fixed;
     top: 0;

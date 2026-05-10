@@ -73,6 +73,37 @@ const projects = [
 
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- Preloader Animation ---
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        const tlLoader = gsap.timeline({
+            onComplete: () => {
+                document.body.classList.remove('no-scroll');
+                preloader.style.display = 'none';
+            }
+        });
+
+        const line1 = document.getElementById('term-line-1');
+        const line2 = document.getElementById('term-line-2');
+        const line3 = document.getElementById('term-line-3');
+        const bug = document.getElementById('the-bug');
+        const explosion = document.getElementById('the-explosion');
+
+        // Type line 1
+        tlLoader.to(line1, { text: "$ git add .", duration: 0.5, ease: "none", delay: 0.5 })
+        // Type line 2
+        .to(line2, { text: "$ git commit -m \"fixed minor bug\"", duration: 1, ease: "none", delay: 0.2 })
+        // Type line 3
+        .to(line3, { text: "$ git push", duration: 0.5, ease: "none", delay: 0.2 })
+        // Squish the bug
+        .to(bug, { scaleY: 0, opacity: 0, transformOrigin: "bottom", duration: 0.1, ease: "power4.in" }, "+=0.2")
+        // Explosion
+        .to(explosion, { opacity: 1, scale: 1.5, duration: 0.2, ease: "back.out(2)" }, "<")
+        .to(explosion, { opacity: 0, scale: 2, duration: 0.3 }, "+=0.2")
+        // Slide out loader
+        .to(preloader, { yPercent: -100, duration: 0.8, ease: "power3.inOut" }, "+=0.3");
+    }
+
     // --- Mobile Menu Toggle ---
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -184,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- GSAP Setup ---
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
     gsap.to(".reveal-down", { opacity: 1, y: 0, duration: 1, ease: "power3.out" });
 
