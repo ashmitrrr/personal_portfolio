@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const line1 = document.getElementById('term-line-1');
         const line2 = document.getElementById('term-line-2');
         const line3 = document.getElementById('term-line-3');
-        const bug = document.getElementById('the-bug');
-        const explosion = document.getElementById('the-explosion');
+        const bugLeft = document.querySelector('.bug-left');
+        const bugRight = document.querySelector('.bug-right');
 
         // Type line 1
         tlLoader.to(line1, { text: "$ git add .", duration: 0.5, ease: "none", delay: 0.5 })
@@ -95,13 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .to(line2, { text: "$ git commit -m \"fixed minor bug\"", duration: 1, ease: "none", delay: 0.2 })
         // Type line 3
         .to(line3, { text: "$ git push", duration: 0.5, ease: "none", delay: 0.2 })
-        // Squish the bug
-        .to(bug, { scaleY: 0, opacity: 0, transformOrigin: "bottom", duration: 0.1, ease: "power4.in" }, "+=0.2")
-        // Explosion
-        .to(explosion, { opacity: 1, scale: 1.5, duration: 0.2, ease: "back.out(2)" }, "<")
-        .to(explosion, { opacity: 0, scale: 2, duration: 0.3 }, "+=0.2")
+        // Break the bug in two
+        .to(bugLeft, { x: -30, y: 20, rotation: -45, opacity: 0, duration: 0.4, ease: "power2.out" }, "+=0.2")
+        .to(bugRight, { x: 30, y: 20, rotation: 45, opacity: 0, duration: 0.4, ease: "power2.out" }, "<")
         // Slide out loader
-        .to(preloader, { yPercent: -100, duration: 0.8, ease: "power3.inOut" }, "+=0.3");
+        .to(preloader, { yPercent: -100, duration: 0.8, ease: "power3.inOut" }, "+=0.1");
     }
 
     // --- Mobile Menu Toggle ---

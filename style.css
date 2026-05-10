@@ -68,34 +68,78 @@ body.no-scroll {
 
 .bug-container {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
-.the-bug {
-    font-size: 4rem;
-    position: absolute;
+.code-bug {
+    display: flex;
+    gap: 2px;
+    position: relative;
 }
 
-.the-explosion {
-    font-size: 5rem;
+.bug-half {
+    width: 14px;
+    height: 35px;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.bug-left {
+    border-radius: 20px 0 0 20px;
+}
+
+.bug-right {
+    border-radius: 0 20px 20px 0;
+}
+
+.bug-half::before {
+    content: '';
     position: absolute;
-    opacity: 0;
-    transform: scale(0);
+    top: -8px;
+    width: 2px;
+    height: 10px;
+    background-color: white;
+}
+.bug-left::before {
+    right: 3px;
+    transform: rotate(-30deg);
+}
+.bug-right::before {
+    left: 3px;
+    transform: rotate(30deg);
+}
+
+.bug-half::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 8px;
+    height: 2px;
+    background-color: white;
+    box-shadow: 0 10px 0 white;
+}
+.bug-left::after {
+    right: 100%;
+}
+.bug-right::after {
+    left: 100%;
 }
 
 .terminal-loader {
     font-family: var(--font-mono);
     color: var(--orange-accent);
-    font-size: 1.1rem;
-    min-height: 80px;
+    font-size: 0.85rem;
+    min-height: 60px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 300px;
+    width: 250px;
 }
 
 .term-line {
