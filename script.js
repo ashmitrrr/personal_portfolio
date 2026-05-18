@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Type line 1
         tlLoader.to(line1, { text: "$ git add .", duration: 0.5, ease: "none", delay: 0.5 })
         // Type line 2
-        .to(line2, { text: "$ git commit -m \"fixed minor bug\"", duration: 1, ease: "none", delay: 0.2 })
+        .to(line2, { text: "$ git commit -m \"fix bug\"", duration: 1, ease: "none", delay: 0.2 })
         // Type line 3
         .to(line3, { text: "$ git push", duration: 0.5, ease: "none", delay: 0.2 })
         // Break the bug in two
